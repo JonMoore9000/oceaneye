@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌊 OceanEye - Live Ocean Feeds
 
-## Getting Started
+Explore real-time underwater camera feeds from ocean research vessels, aquariums, and reefs around the world. Discover marine life and learn about ocean ecosystems through an interactive globe interface.
 
-First, run the development server:
+## ✨ Features
+
+- **Interactive Globe**: Click on clustered markers to explore ocean feeds from different regions
+- **Live Ocean Feeds**: 6 curated underwater camera feeds from Honduras, California, and British Columbia
+- **Educational Content**: Learn about ocean zones, marine species, and conservation
+- **Visual Clustering**: Feeds from the same region are visually grouped for easy navigation
+- **Responsive Design**: Works on desktop and mobile devices
+
+## 🚀 Quick Start
+
+### Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## 🌍 Ocean Feed Locations
 
-To learn more about Next.js, take a look at the following resources:
+- **🏝️ Honduras (3 feeds)**: Utila Bay Islands coral reef system
+- **🏢 California (2 feeds)**: Aquarium of the Pacific exhibits
+- **🐋 British Columbia (1 feed)**: Orca rubbing beach underwater cam
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Framework**: Next.js 15 with App Router
+- **Styling**: TailwindCSS 4
+- **UI Components**: Headless UI, Heroicons
+- **Maps**: Custom SVG world map with coordinate projection
+- **TypeScript**: Full type safety
 
-## Deploy on Vercel
+## 📦 Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Vercel (Recommended)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Push your code to GitHub
+2. Connect your repository to [Vercel](https://vercel.com)
+3. Deploy automatically - no configuration needed!
+
+The app is optimized for Vercel deployment with:
+- ✅ Static generation for all pages
+- ✅ No external API dependencies
+- ✅ No environment variables required
+- ✅ Optimized build output
+
+### Other Platforms
+
+The app can be deployed to any platform that supports Next.js:
+- Netlify
+- Railway
+- DigitalOcean App Platform
+- AWS Amplify
+
+## 🔧 Configuration
+
+No additional configuration required! The app works out of the box with:
+- Embedded YouTube live streams
+- Static ocean feed data
+- Client-side interactivity
+
+## 📁 Project Structure
+
+```
+app/
+├── components/          # React components
+│   ├── Globe.tsx       # Interactive world map
+│   ├── FeedModal.tsx   # Video player modal
+│   └── EducationalPanel.tsx
+├── data/               # Static data
+│   └── oceanFeeds.ts   # Ocean feed definitions
+├── explore/            # Explore page
+├── learn/              # Educational content
+└── globals.css         # Global styles
+```
+
+## 🎯 Ready for Production
+
+- ✅ Build passes without errors
+- ✅ No ESLint issues
+- ✅ TypeScript compilation successful
+- ✅ All links and embeds verified
+- ✅ Responsive design tested
+- ✅ Performance optimized
