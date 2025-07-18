@@ -159,26 +159,26 @@ export default function Globe({ onFeedSelect }: GlobeProps) {
                         e.stopPropagation();
                         handleMarkerClick(feed);
                       }}
-                      className={`relative transition-all duration-300 hover:scale-150 hover:z-50 group cursor-pointer bg-transparent border-none p-2 ${
+                      className={`relative transition-all duration-300 hover:scale-150 hover:z-50 group cursor-pointer bg-transparent border-none p-3 sm:p-2 ${
                         selectedFeedId === feed.id ? 'scale-150 z-50' : ''
                       }`}
-                      style={{ pointerEvents: 'auto' }}
+                      style={{ pointerEvents: 'auto', minWidth: '44px', minHeight: '44px' }}
                       title={feed.name}
                     >
-                      {/* Pulsing ring animation */}
-                      <div className="absolute -inset-2 rounded-full bg-cyan-400 animate-ping opacity-50 pointer-events-none"></div>
-                      <div className="absolute -inset-1 rounded-full bg-cyan-300 animate-pulse opacity-30 pointer-events-none"></div>
+                      {/* Pulsing ring animation - larger on mobile */}
+                      <div className="absolute -inset-3 sm:-inset-2 rounded-full bg-cyan-400 animate-ping opacity-50 pointer-events-none"></div>
+                      <div className="absolute -inset-2 sm:-inset-1 rounded-full bg-cyan-300 animate-pulse opacity-30 pointer-events-none"></div>
 
-                      {/* Main marker */}
-                      <div className="relative w-6 h-6 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-full border-2 border-white shadow-xl pointer-events-none">
+                      {/* Main marker - larger on mobile */}
+                      <div className="relative w-7 h-7 sm:w-6 sm:h-6 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-full border-2 border-white shadow-xl pointer-events-none">
                         <div className="absolute inset-1 bg-gradient-to-br from-cyan-200 to-cyan-400 rounded-full"></div>
                         <div className="absolute inset-2 bg-white rounded-full opacity-60"></div>
                       </div>
 
-                      {/* Enhanced tooltip on hover */}
-                      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-black/90 text-white text-sm px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap pointer-events-none shadow-xl border border-cyan-400/30 z-50">
-                        <div className="font-semibold text-cyan-300">{feed.name}</div>
-                        <div className="text-xs text-blue-200">{feed.region}</div>
+                      {/* Enhanced tooltip - mobile optimized */}
+                      <div className="absolute bottom-12 sm:bottom-10 left-1/2 transform -translate-x-1/2 bg-black/90 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap pointer-events-none shadow-xl border border-cyan-400/30 z-50 max-w-xs">
+                        <div className="font-semibold text-cyan-300 truncate">{feed.name}</div>
+                        <div className="text-xs text-blue-200 truncate">{feed.region}</div>
                         <div className="text-xs text-gray-300">Depth: {feed.depth}</div>
                         {/* Arrow pointing down */}
                         <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-black/90"></div>
@@ -232,32 +232,28 @@ export default function Globe({ onFeedSelect }: GlobeProps) {
         </div>
       </div>
 
-      {/* Legend */}
-      <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm rounded-lg p-4 text-white">
-        <h3 className="font-semibold mb-2">Legend</h3>
-        <div className="flex items-center space-x-2 text-sm">
-          <div className="w-3 h-3 rounded-full bg-cyan-400"></div>
-          <span>Live Ocean Feed</span>
+      {/* Legend - More compact on mobile */}
+      <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-black/60 backdrop-blur-sm rounded-lg p-2 sm:p-4 text-white max-w-[140px] sm:max-w-none">
+        <h3 className="font-semibold mb-1 sm:mb-2 text-xs sm:text-base">Legend</h3>
+        <div className="flex items-center space-x-1 sm:space-x-2 text-xs sm:text-sm mb-1 sm:mb-2">
+          <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-cyan-400 flex-shrink-0"></div>
+          <span className="text-xs sm:text-sm">Live Feed</span>
         </div>
-        <p className="text-xs text-blue-200 mt-2">
-          {oceanFeeds.length} feeds available
-        </p>
-        <div className="text-xs text-blue-300 mt-1">
-          <div>🏝️ Honduras: 3 feeds</div>
-          <div>🏢 California: 2 feeds</div>
-          <div>🐋 British Columbia: 1 feed</div>
+        <div className="text-xs text-blue-300 space-y-0.5">
+          <div>🏝️ Honduras: 3</div>
+          <div>🏢 California: 2</div>
+          <div>🐋 BC: 1</div>
         </div>
-
       </div>
 
-      {/* Instructions */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 backdrop-blur-sm rounded-lg p-4 text-white text-center max-w-md">
-        <h3 className="font-semibold mb-2 text-cyan-300">🌊 Explore Live Ocean Feeds</h3>
-        <p className="text-sm mb-2">Click on the cyan markers to watch live underwater cameras from around the world</p>
-        <div className="flex justify-center items-center space-x-4 text-xs">
-          <span>📍 {oceanFeeds.length} feeds available</span>
-          <span>🐠 Marine life discovery</span>
-          <span>🌍 Global coverage</span>
+      {/* Instructions - More compact on mobile, positioned to avoid overlap */}
+      <div className="absolute bottom-1 sm:bottom-4 left-1/2 transform -translate-x-1/2 bg-black/80 backdrop-blur-sm rounded-lg p-2 sm:p-4 text-white text-center max-w-[280px] sm:max-w-md mx-2">
+        <h3 className="font-semibold mb-1 sm:mb-2 text-cyan-300 text-xs sm:text-base">🌊 Explore Live Ocean Feeds</h3>
+        <p className="text-xs sm:text-sm mb-1 sm:mb-2">Tap the cyan markers to watch live underwater cameras</p>
+        <div className="flex justify-center items-center space-x-2 sm:space-x-4 text-xs">
+          <span>📍 {oceanFeeds.length} feeds</span>
+          <span className="hidden sm:inline">🐠 Marine life</span>
+          <span>🌍 Global</span>
         </div>
       </div>
     </div>

@@ -33,35 +33,36 @@ export default function FeedModal({ feed, isOpen, onClose }: FeedModalProps) {
   if (!isOpen || !feed) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-black/75 backdrop-blur-sm"
         onClick={onClose}
       />
 
-      {/* Modal */}
-      <div className="relative w-full max-w-6xl bg-gradient-to-br from-blue-900 to-blue-800 rounded-2xl p-6 shadow-2xl max-h-[90vh] overflow-y-auto">
+      {/* Modal - Mobile optimized */}
+      <div className="relative w-full max-w-6xl bg-gradient-to-br from-blue-900 to-blue-800 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-2xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className="flex items-center justify-between mb-6">
-          <h3 className="text-2xl font-bold text-white">
+        <div className="flex items-start justify-between mb-4 sm:mb-6">
+          <h3 className="text-lg sm:text-2xl font-bold text-white pr-4 leading-tight">
             {feed.name}
           </h3>
           <button
             type="button"
-            className="rounded-md bg-white/10 p-2 text-white hover:bg-white/20 transition-colors"
+            className="rounded-md bg-white/10 p-2 text-white hover:bg-white/20 transition-colors flex-shrink-0"
             onClick={onClose}
+            style={{ minWidth: '44px', minHeight: '44px' }}
           >
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-3 gap-4 sm:gap-6">
           {/* Video Player */}
           <div className="lg:col-span-2">
-            <div className="aspect-video rounded-lg overflow-hidden bg-black mb-4">
+            <div className="aspect-video rounded-lg overflow-hidden bg-black mb-3 sm:mb-4">
               <iframe
                 src={feed.stream_url}
                 className="w-full h-full border-0"
@@ -72,9 +73,9 @@ export default function FeedModal({ feed, isOpen, onClose }: FeedModalProps) {
             </div>
 
             {/* Stream Info */}
-            <div className="bg-white/10 rounded-lg p-4">
-              <h4 className="text-lg font-semibold text-white mb-2">Stream Information</h4>
-              <div className="grid grid-cols-2 gap-4 text-sm">
+            <div className="bg-white/10 rounded-lg p-3 sm:p-4">
+              <h4 className="text-base sm:text-lg font-semibold text-white mb-2">Stream Information</h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-sm">
                 <div>
                   <span className="text-blue-300 font-medium">Location:</span>
                   <p className="text-white">{feed.region}</p>
