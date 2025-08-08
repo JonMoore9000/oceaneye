@@ -78,3 +78,7 @@ body {
     display: none;
   }
 }
+
+a:hover, button:hover {
+  cursor: pointer;
+}

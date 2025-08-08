@@ -63,6 +63,16 @@ export const rawFeedLinks: RawFeedLink[] = [
     url: "https://www.youtube.com/embed/Lv9t0hZTvz4?autoplay=1",
     notes: "Utopia Village Back-of-Dock Underwater Reef",
     status: "processed"
+  },
+  {
+    url: "https://www.youtube.com/embed/og8bbxl0iW8?autoplay=1",
+    notes: "Sharks in the Atlantic - Frying Pan Tower",
+    status: "processed"
+  },
+  {
+    url: "https://www.youtube.com/embed/BLvr4K2eiRE?autoplay=1",
+    notes: "Shark Lagoon - Aquarium of the Pacific",
+    status: "processed"
   }
   
 ];

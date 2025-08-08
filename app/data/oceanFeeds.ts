@@ -163,6 +163,56 @@ export const oceanFeeds: OceanFeed[] = [
         "This depth is perfect for Open Water diver certification"
       ]
     }
+  },
+  {
+    id: "frying-pan-tower-sharks",
+    name: "Frying Pan Tower - Atlantic Shark Cam",
+    latitude: 33.4833,
+    longitude: -77.5833,
+    stream_url: "https://www.youtube.com/embed/og8bbxl0iW8?autoplay=1",
+    depth: "15-25m",
+    region: "Cape Fear, North Carolina, USA",
+    source: "Explore.org & Frying Pan Tower",
+    description: "Live underwater camera beneath the historic Frying Pan Tower, 34 miles off the North Carolina coast, showcasing Atlantic sharks and marine life.",
+    zone: "Epipelagic",
+    species: ["Sand tiger sharks", "Sandbar sharks", "Atlantic spadefish", "Cobia", "Barracuda", "Amberjack", "Black sea bass", "Red drum", "King mackerel", "Sea turtles"],
+    educational_content: {
+      zone_info: "Located on Frying Pan Shoals, this area is part of the Gulf Stream system where warm tropical waters meet cooler Atlantic waters, creating rich feeding grounds for marine life.",
+      common_species: "The waters around Frying Pan Tower are famous for large shark populations, particularly sand tiger sharks that aggregate here seasonally, along with various game fish and sea turtles.",
+      interesting_facts: [
+        "Frying Pan Tower is a decommissioned Coast Guard light station built in 1964",
+        "The tower sits 34 miles offshore in 45 feet of water on Frying Pan Shoals",
+        "This area is part of the 'Graveyard of the Atlantic' with over 3,000 shipwrecks",
+        "Sand tiger sharks gather here in large numbers during summer months",
+        "The Gulf Stream brings warm water and diverse marine life to this area",
+        "The tower now serves as a research platform and bed & breakfast"
+      ]
+    }
+  },
+  {
+    id: "aquarium-pacific-shark-lagoon",
+    name: "Aquarium of the Pacific - Shark Lagoon",
+    latitude: 33.7622,
+    longitude: -118.1970,
+    stream_url: "https://www.youtube.com/embed/BLvr4K2eiRE?autoplay=1",
+    depth: "Aquarium Tank",
+    region: "Long Beach, California, USA",
+    source: "Aquarium of the Pacific",
+    description: "Live camera overlooking the Shark Lagoon exhibit featuring multiple shark species in the Aquarium of the Pacific's largest predator habitat.",
+    zone: "Aquarium Exhibit",
+    species: ["Zebra sharks", "Whitetip reef sharks", "Blacktip reef sharks", "Nurse sharks", "Bonnethead sharks", "Rays", "Guitar fish", "Tropical fish"],
+    educational_content: {
+      zone_info: "The Shark Lagoon is the Aquarium's largest exhibit, designed to showcase the diversity of shark species and dispel myths about these important ocean predators.",
+      common_species: "Features a variety of shark species from different ocean regions, demonstrating the diversity of these apex predators and their important role in marine ecosystems.",
+      interesting_facts: [
+        "Sharks have existed for over 400 million years, predating dinosaurs",
+        "Most sharks are not dangerous to humans - only 3 species are responsible for most attacks",
+        "Sharks play a crucial role in maintaining healthy ocean ecosystems",
+        "The Shark Lagoon holds 280,000 gallons of water",
+        "Visitors can touch bamboo sharks and rays in the interactive touch pools",
+        "The exhibit helps educate about shark conservation and the threats they face"
+      ]
+    }
   }
 ];
 

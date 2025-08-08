@@ -9,6 +9,7 @@ interface GlobeProps {
 
 export default function Globe({ onFeedSelect }: GlobeProps) {
   const [selectedFeedId, setSelectedFeedId] = useState<string | null>(null);
+  const [hoveredFeed, setHoveredFeed] = useState<{ feed: OceanFeed; x: number; y: number } | null>(null);
 
   // Group feeds by region for visual clustering
   const feedGroups = oceanFeeds.reduce((groups, feed) => {
@@ -159,6 +160,15 @@ export default function Globe({ onFeedSelect }: GlobeProps) {
                         e.stopPropagation();
                         handleMarkerClick(feed);
                       }}
+                      onMouseEnter={(e) => {
+                        const rect = e.currentTarget.getBoundingClientRect();
+                        setHoveredFeed({
+                          feed,
+                          x: rect.left + rect.width / 2,
+                          y: rect.top
+                        });
+                      }}
+                      onMouseLeave={() => setHoveredFeed(null)}
                       className={`relative transition-all duration-300 hover:scale-150 hover:z-50 group cursor-pointer bg-transparent border-none p-3 sm:p-2 ${
                         selectedFeedId === feed.id ? 'scale-150 z-50' : ''
                       }`}
@@ -173,15 +183,6 @@ export default function Globe({ onFeedSelect }: GlobeProps) {
                       <div className="relative w-7 h-7 sm:w-6 sm:h-6 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-full border-2 border-white shadow-xl pointer-events-none">
                         <div className="absolute inset-1 bg-gradient-to-br from-cyan-200 to-cyan-400 rounded-full"></div>
                         <div className="absolute inset-2 bg-white rounded-full opacity-60"></div>
-                      </div>
-
-                      {/* Enhanced tooltip - mobile optimized */}
-                      <div className="absolute bottom-12 sm:bottom-10 left-1/2 transform -translate-x-1/2 bg-black/90 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap pointer-events-none shadow-xl border border-cyan-400/30 z-50 max-w-xs">
-                        <div className="font-semibold text-cyan-300 truncate">{feed.name}</div>
-                        <div className="text-xs text-blue-200 truncate">{feed.region}</div>
-                        <div className="text-xs text-gray-300">Depth: {feed.depth}</div>
-                        {/* Arrow pointing down */}
-                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-black/90"></div>
                       </div>
                     </button>
                   </div>
@@ -256,6 +257,25 @@ export default function Globe({ onFeedSelect }: GlobeProps) {
           <span>🌍 Global</span>
         </div>
       </div>
+
+      {/* Global tooltip - positioned outside all other elements */}
+      {hoveredFeed && (
+        <div
+          className="fixed bg-black/90 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-2 rounded-lg shadow-xl border border-cyan-400/30 max-w-xs pointer-events-none transition-opacity duration-200"
+          style={{
+            left: `${hoveredFeed.x}px`,
+            top: `${hoveredFeed.y - 60}px`,
+            transform: 'translateX(-50%)',
+            zIndex: 99999
+          }}
+        >
+          <div className="font-semibold text-cyan-300 truncate">{hoveredFeed.feed.name}</div>
+          <div className="text-xs text-blue-200 truncate">{hoveredFeed.feed.region}</div>
+          <div className="text-xs text-gray-300">Depth: {hoveredFeed.feed.depth}</div>
+          {/* Arrow pointing down */}
+          <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-black/90"></div>
+        </div>
+      )}
     </div>
   );
 }

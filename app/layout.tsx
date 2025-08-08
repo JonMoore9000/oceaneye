@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
+import ContactButton from "./components/ContactButton";
 
 const inter = Inter({
   variable: "--font-geist-sans",
@@ -49,6 +50,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${geistMono.variable} antialiased bg-slate-900 text-slate-100`}
       >
+        <ContactButton />
         {children}
         <Analytics />
       </body>
