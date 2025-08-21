@@ -19,14 +19,14 @@ export default function ContactButton() {
   };
 
   return (
-    <div className="fixed top-4 left-4 z-50">
+    <div className="fixed lg:top-2 top-14 left-8 lg:left-1/2 transform -translate-x-1/2  z-50">
       {/* Main Contact Button */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
         className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-3 py-2 shadow-lg transition-all duration-300 flex items-center gap-2 text-sm font-medium"
         style={{ minWidth: '44px', minHeight: '44px' }}
       >
-        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="h-5 w-5 sm:h-4 sm:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
         <span className="hidden sm:inline">Contact</span>
@@ -84,6 +84,24 @@ export default function ContactButton() {
               <p className="text-xs text-gray-500 mt-2">
                 Questions about OceanEye? Feedback? Just want to chat about marine life? Drop me a line!
               </p>
+
+              {/* Ko-fi Support Button */}
+              <div className="mt-3 pt-3 border-t border-gray-200">
+                <p className="text-xs text-gray-500 mb-2">Like OceanEye? Support the project:</p>
+                <a
+                  href="https://ko-fi.com/Y8Y04MVLP"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block hover:opacity-80 transition-opacity"
+                >
+                  <img
+                    height="36"
+                    style={{ border: '0px', height: '36px' }}
+                    src="https://storage.ko-fi.com/cdn/kofi3.png?v=6"
+                    alt="Buy Me a Coffee at ko-fi.com"
+                  />
+                </a>
+              </div>
             </div>
           </div>
         </>
